@@ -98,6 +98,31 @@ Read [Restoring ValveSteam](#restoring-valvesteam) below if you want to use the 
 
 7. OpenSteamClient will be installed and launched.
 
+### At this point you may run into dependency errors that you need to resolve, instructions will vary per distro, instructions below are for voidlinux systems
+1. Get ECM (KDE Extra CMake Modules)
+
+    ```
+    git clone https://invent.kde.org/frameworks/extra-cmake-modules.git 
+    cd extra-cmake-modules
+    mkdir build && cd build    
+    cmake ..
+    make && sudo make install
+    ```
+   
+3. Get nlohmann json lib
+
+    ```
+    git clone https://github.com/nlohmann/json nlohmann-json
+    cd nlohmann-json
+    mkdir build && cd build    
+    cmake ..
+    make && sudo make install
+    ```
+
+3. Get package manager dependencies (qt 6, libarchive, protobuf, qrencode & curl headers)
+    
+    `sudo xbps-install qt6-base qt6-base-devel libarchive libarchive-devel protobuf-devel qrencode-devel libcurl-devel`
+
 
 # Restoring ValveSteam
 If you wish to revert back to the official client, you have three options:
